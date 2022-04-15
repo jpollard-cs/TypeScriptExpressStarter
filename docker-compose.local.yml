@@ -3,15 +3,15 @@
 # and setting up remote debugging
 version: '3'
 services:
-  discord-bot:
+  api:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: "discord-bot"
+    container_name: "api"
     depends_on:
       - db
     environment:
-      MONGO_DB_URI: mongodb://mongo-db:27017/discord_bot?retryWrites=true&w=majority
+      MONGO_DB_URI: mongodb://mongo-db:27017/api?retryWrites=true&w=majority
       IS_LOCAL: true
   mongo-db:
     image: mongo:5.0.6@sha256:546c8306016e24185ef40c3e6f59a1782ee885dc54aa000bfade3dffe0a75d87
